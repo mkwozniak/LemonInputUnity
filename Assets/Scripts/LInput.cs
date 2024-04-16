@@ -233,27 +233,8 @@ namespace LemonInput
 		/// </summary>
 		/// <param name="action">The input action to rebind.</param>
 		/// <param name="index">The binding index of the action.</param>
-		public void RebindKeyboardAction(InputAction action, int index)
-		{
-			_rebinding = true;
-			var rebindOperation = action.PerformInteractiveRebinding(index)
-				.WithBindingGroup(Controls.KeyboardScheme.bindingGroup)
-				.WithCancelingThrough(CancelRebindInputPath)
-				.OnCancel(operation => _onRebindFailed?.Invoke(action))
-				.OnComplete(operation => {
-					operation.Dispose();
-					RegisterRebindable(action.id, action.bindings[index].effectivePath, index);
-					SaveControls(Bindings);
-					_onRebindSuccess?.Invoke(action);
-				})
-				.Start();
-		}
-
-		/// <summary>
-		/// Starts the rebinding process for a particular input action.
-		/// </summary>
-		/// <param name="action">The input action to rebind.</param>
-		/// <param name="index">The binding index of the action.</param>
+		/// <param name="scheme">The control scheme to edit for.</param>
+		/// <param name="cancelPath">The input to cancel rebinding.</param>
 		public void RebindAction(InputAction action, int index, InputControlScheme scheme, string cancelPath)
 		{
 			_rebinding = true;
