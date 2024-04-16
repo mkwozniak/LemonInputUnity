@@ -19,7 +19,10 @@ If you're looking to learn how to use the new input system, this is also a great
 - Includes examples of rebinding Keyboard and Gamepad Controllers.
 - Includes examples of saving/loading controls to a file.
 - One script with two included example scripts for full rebinding menu/buttons in the Unity canvas.
+
+> Demo Preview Image
 ![5452543](https://github.com/mkwozniak/LemonInputUnity/assets/51724102/2bb08a51-36a6-4590-8fbf-36aef59d8c90)
+> Demo Preview Image
 ![341434](https://github.com/mkwozniak/LemonInputUnity/assets/51724102/a5abce1f-851d-4978-9d41-8ab2cc698d16)
 
 
