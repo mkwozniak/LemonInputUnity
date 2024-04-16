@@ -57,12 +57,13 @@ Then, all you need to do is register this input, and it's ready to go.
 > Use *RegisterRebindable* in addition with those above to register an input as rebindable.
 
 
-## Methods
+## Important Methods
 
 ### RegisterValue(*InputAction*, ref *string ID*)
 *RegisterValue* takes an **InputAction** from your control scheme and a reference to the string ID that you created.
 This is for *value only* inputs, such as mouse position, scroll wheel, etc. You can now use *ReadFloat* or *ReadVector2* to read the value of this input at any time.
->
+> --
+
 
 ### RegisterAction(*InputAction*, ref *string ID*)
 *RegisterAction* takes an **InputAction** from your control scheme and a reference to the string ID you created.
@@ -73,8 +74,9 @@ You can now use *ListenInputEvent* to assign a callback to this action for eithe
 *Callbacks for all events are Actions that use no arguments.*
 
 Alternatively, you can avoid using events by either using the *Triggered*, *IsPressed*, or *IsReleased*.
+> --
 
->
+
 ### RegisterRebindable(*GUID*, *string path*, *int bindingIndex*)
 *RegisterBindable* registers your input as rebindable, and its binding for the given index can now be changed at any time.
 
@@ -83,23 +85,27 @@ Unity lets you access any **InputAction** *GUID* through the *.id* property, as 
 The binding index is usually 0, but may vary depending on what type of input you created and whether or not you want multiple buttons for that input. (Primary & Secondary)
 
 Examples of this are all in the demo, and it's a really straightforward system.
->
+> --
+
 
 ### Triggered(*string ID*)
 Takes a registered ID and returns true if the input has been triggered.
->
+> --
+
 
 ### IsPressed(*string ID*)
 Takes a registered ID and returns true if the input is being held down.
 
 This will only work with inputs registered with *RegisterAction*.
->
+> --
+
 
 ### IsReleased(*string ID*)
 Takes a registered ID and returns true if the input was just released.
 
 This will only work with inputs registered with *RegisterAction*.
->
+> --
+
 
 ### ReadFloat(*string ID*)
 Takes a registered ID and returns the *float* value of that input.
@@ -107,7 +113,8 @@ Takes a registered ID and returns the *float* value of that input.
 Unity will throw an error if this input isn't valid to be a float. So be mindful of what types your inputs are.
 
 This will only work with inputs registered with *RegisterValue*.
->
+> --
+
 
 ### ReadVector2(*string ID*)
 Takes a registered ID and returns the *Vector2* value of that input.
@@ -115,27 +122,32 @@ Takes a registered ID and returns the *Vector2* value of that input.
 Unity will throw an error if this input isn't valid to be a Vector2. So be mindful of what types your inputs are.
 
 This will only work with inputs registered with *RegisterValue*.
->
+> --
+
 
 ### ListenInputEvent(*InputEventType*, *string ID*, *callback*)
 Takes an **InputEventType** (**Started**, **Performed**, or **Cancelled**), the registered ID, and a no argument callback.
 Whenever that input event happens, your callback will be notified.
->
+> --
+
 
 ### MuteInputEvent(*InputEventType*, *string ID*, *callback*)
 Takes an **InputEventType** (**Started**, **Performed**, or **Cancelled**), the registered ID, and a no argument callback.
 Your callback will no longer be notified whenever that input event happens.
->
+> --
+
 
 ### GetBindingName(*string ID*, *int bindingIndex = 0*)
 Takes a registered ID, and an optional argument binding index.
 
 Returns the display string for that particular binding.
->
+> --
+
 
 ### GetAction(*string ID*, *int bindingIndex = 0*)
 Takes a registered ID, and an optional argument for binding index then returns the associated Unity **InputAction**.
->
+> --
+
 
 ### SaveAllRegisteredBindings()
 Saves any bindings registered through *RegisterRebindable* to a file.
@@ -143,12 +155,12 @@ Saves any bindings registered through *RegisterRebindable* to a file.
 This will not overwrite your control scheme, so you'll need to load changed bindings.
 
 You can modify the file path, name, and extension in **LInputRegistry.cs**
->
+> --
+
 
 ### LoadAllRegisteredBindings()
 Loads any bindings saved from a file and applies them.
->
+> --
 
 ### LoadAllDefaultBindings()
 Sets all registered bindings to their default value that they were first registered with.
->
